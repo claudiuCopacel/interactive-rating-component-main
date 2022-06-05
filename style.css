@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+/* font-family: 'Overpass', sans-serif; */
+/* - White: hsl(0, 0%, 100%)
+- Light Grey: hsl(217, 12%, 63%)
+- Medium Grey: hsl(216, 12%, 54%)
+- Dark Blue: hsl(213, 19%, 18%)
+- Very Dark Blue: hsl(216, 12%, 8%)
+- Orange: hsl(25, 97%, 53%)
+ */
+
+/* Global */
+:root {
+  --color: hsl(213, 19%, 18%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Overpass", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(216, 12%, 8%);
+  color: white;
+}
+h2 {
+  color: hsl(0, 0%, 100%);
+  font-size: 2.5rem;
+}
+p {
+  color: hsl(216, 12%, 54%);
+  font-size: 1.5rem;
+  line-height: 2.4rem;
+}
+h3 {
+  color: white;
+}
+
+/* FRONT START */
+#front {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* transform: translateY(0); */
+  opacity: 1;
+  transition: opacity 0.5s ease, top 1s ease;
+  z-index: 5;
+}
+#front.active {
+  opacity: 0;
+  top: -20%;
+}
+
+.card {
+  height: 35rem;
+  width: 35rem;
+  background-color: hsl(213, 19%, 18%);
+  padding: 2.5rem;
+  border-radius: 2.5rem;
+}
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.star-container {
+  border-radius: 50%;
+  background-color: hsl(212, 15%, 25%);
+  height: 4rem;
+  width: 4rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+.star-container img {
+  height: 2rem;
+  width: 2rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rating {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.rating-btn {
+  border: none;
+  cursor: pointer;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background-color: hsl(212, 15%, 25%);
+  font-size: 1.5rem;
+  color: hsl(216, 12%, 54%);
+  margin: 1.5rem 0;
+}
+.rating-btn:hover {
+  background-color: hsl(217, 12%, 63%);
+  color: white;
+}
+.rating-btn.active {
+  background-color: hsl(25, 97%, 53%);
+  color: white;
+}
+.submit-btn {
+  background-color: hsl(25, 97%, 53%);
+  border: none;
+  padding: 1.5rem;
+  border-radius: 20rem;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.submit-btn::after {
+  content: "please give us a rating!";
+  position: absolute;
+  left: 25%;
+  bottom: -2.5rem;
+  font-size: 1.5rem;
+  color: var(--color);
+  transition: color 0.5s ease;
+}
+
+/* FRONT END */
+/* BACK START */
+#back {
+  opacity: 0;
+  transform: translateY(-20rem);
+  transition: opacity 0.5s ease, transform 1s ease;
+}
+#back.active {
+  opacity: 1;
+  transform: translate(0);
+}
+#back .content {
+  text-align: center;
+}
+h3 {
+  background-color: hsl(212, 15%, 25%);
+  width: fit-content;
+  margin: 1rem auto;
+  padding: 1rem 1.5rem;
+  border-radius: 20rem;
+  color: hsl(25, 97%, 53%);
+}
+/* BACK END */
+
+@media (max-width: 400px) {
+  html {
+    font-size: 50%;
+  }
+}
